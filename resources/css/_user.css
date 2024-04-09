@@ -1,0 +1,32 @@
+section{
+    @apply mx-auto w-10/12 mt-8
+}
+
+section a{
+    @apply border border-white rounded mb-6 pl-3 py-2 w-full flex flex-row gap-3 align-baseline text-base text-white
+}
+
+section .actualites {
+    @apply mt-8 text-white
+}
+section .actualites h2{
+    @apply text-white text-center font-bold underline
+}
+section .actualites .actu{
+    @apply flex flex-row gap-3 mt-6
+}
+section .actualites .actu img{
+    @apply w-6/12
+}
+section .actualites .actu div{
+    @apply w-6/12
+}
+section .actualites .actu img{
+    @apply rounded drop-shadow-md
+}
+section .actualites .actu div h3{
+    @apply text-white text-base
+}
+section .actualites .actu div p{
+    @apply text-white text-xs text-stone-200
+}
