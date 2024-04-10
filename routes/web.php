@@ -31,4 +31,5 @@ Route::get('/films/search', [Films::class, 'popular'])->name('films-search');
 Route::get('/films/{gud?}', [Films::class, 'item'])->name('films-item');
 Route::get('/user', [User::class, 'home'])->name('user-home');
 Route::get('/signin', [Front::class, 'signin'])->name('signin');
+Route::get('/signup', [Front::class, 'signup'])->name('signup');
 Route::get('/', [Front::class, 'home'])->name('home');

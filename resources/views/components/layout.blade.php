@@ -28,13 +28,24 @@
                 <ul class="menu w-56">
                     <li>
                         <details>
-                            <summary>
-                                <i data-lucide="User" class="mr-2"></i>Votre compte
-                            </summary>
-                            <ul>
-                                <li><a href="{{ route('user-home') }}">Flux</a></li>
-                                <li><a>Préférences</a></li>
-                            </ul>
+                            @if (Auth::check())
+                                <summary>
+                                    <i data-lucide="User" class="mr-2"></i>Votre compte
+                                </summary>
+                                <ul>
+                                    <li><a href="{{ route('user-home') }}">Flux</a></li>
+                                    <li><a>Préférences</a></li>
+                                </ul>
+                            @else
+                                <summary>
+                                    <i data-lucide="User" class="mr-2"></i>Membre
+                                </summary>
+                                <ul>
+                                    <li><a href="{{ route('signin') }}">Connexion</a></li>
+                                    <li><a href="{{ route('signup') }}">Inscription</a></li>
+                                </ul>
+                            @endif
+
                         </details>
                     </li>
                     <li>
@@ -46,8 +57,8 @@
                                 <li><a href="{{ route('films-popular') }}">Populaires</a></li>
                                 <li><a href="{{ route('user-home') }}">Cultes</a></li>
                             </ul>
+                            @if (Auth::check())
                             <div class="divider my-1">Vos films</div>
-
                             <ul>
                                 <li><a href="{{ route('user-home') }}">Recommandés</a></li>
                                 <li><a href="{{ route('user-home') }}">Favoris</a></li>
@@ -55,6 +66,7 @@
                                 <li><a href="{{ route('user-home') }}">Aimés</a></li>
                                 <li><a href="{{ route('user-home') }}">Vus</a></li>
                             </ul>
+                            @endif
                         </details>
                     </li>
                     <li>
@@ -66,8 +78,8 @@
                                 <li><a href="{{ route('films-popular') }}">Populaires</a></li>
                                 <li><a href="{{ route('user-home') }}">Cultes</a></li>
                             </ul>
+                            @if (Auth::check())
                             <div class="divider my-1">Vos films</div>
-
                             <ul>
                                 <li><a href="{{ route('user-home') }}">Recommandées</a></li>
                                 <li><a href="{{ route('user-home') }}">Favorites</a></li>
@@ -75,6 +87,7 @@
                                 <li><a href="{{ route('user-home') }}">Aimées</a></li>
                                 <li><a href="{{ route('user-home') }}">Vues</a></li>
                             </ul>
+                            @endif
                         </details>
                     </li>
 <!--                    <li>
@@ -135,6 +148,7 @@
                         </label>
                     </div>
                     <div class="w-1/3 justify-end flex">
+                        @if (Auth::check())
                         <div class="dropdown self-center">
                             <div tabindex="0" role="button" class="btn btn-sm">
                                 <div class="avatar">
@@ -162,6 +176,9 @@
                                 </li>
                             </ul>
                         </div>
+                        @else
+                            <a class="mr-2" href="{{ route('signin') }}">Connexion</a><a class="ml-2" href="{{ route('signup') }}">Inscription</a>
+                        @endif
                     </div>
                 </div>
 

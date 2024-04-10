@@ -2,10 +2,10 @@
     <x-slot name="frontContent">
         <section  class="mb-16 h-screen max-h-[900px] flex justify-center">
             <div class="w-1/3 text-center self-center">
-                <div class="prose mb-6"><h1>Sign In</h1></div>
-                <a href="" class="w-full btn btn-info">Sign in with Mastodon</a>
+                <div class="prose mb-6"><h1>Sign Up</h1></div>
+                <a href="" class="w-full btn btn-info">Sign up with Mastodon</a>
                 <div class="divider my-10">Or</div>
-                <h2 class="mb-6">Sign in with email and password</h2>
+                <h2 class="mb-6">Sign up with email and password</h2>
                 <label class="form-control w-full mb-6">
                     <div class="label">
                         <span class="label-text">Your email?</span>
@@ -25,8 +25,8 @@
                     </label>
                     <a href="">Forgotten password ?</a>
                 </div>
-                <button type="button" class="btn btn-success mb-6 w-full">Sign in</button>
-                Not a member yet ? <a href="{{ route('signup') }}" class="font-bold" >Create an account</a>
+                <button type="button" class="btn btn-success mb-6 w-full">Sign up</button>
+                Already a member ? <a href="{{ route('signin') }}" class="font-bold" href="">Sign in</a>
             </div>
         </section>
     </x-slot>
