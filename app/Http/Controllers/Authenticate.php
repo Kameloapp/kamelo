@@ -136,4 +136,37 @@ class Authenticate extends Controller
         ])->onlyInput('email');
     }
 
+    public function register(Request $request) {
+
+        if($request->filled('fullname')) {
+            //honeypot le champ fullname doit être vide.
+            //en théorie on aurait dû pouvoir le tester avec un prohibited dans le validate (voir plus bas) mais non fonctionnel
+            return back()->withErrors([
+                'fullname' => 'Sorry you do not seems to be a real person to us',
+            ])->onlyInput('fullname');
+        }
+
+        $request->validate(
+            [
+                'fullname' => ['prohibited'],
+                'name' => ['required'],
+                'email' => ['required', 'email','unique:users,email'],
+                'password' => ['required', 'min:8'],
+                'password_confirmation' => ['required', 'same:password'],
+            ],
+            [
+                'fullname.prohibited' => 'bad robot',
+                'email.unique' => 'Un compte existe déjà pour cet email',
+            ]
+        );
+
+        $user = new User($request->all());
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        $user->assignRole(['user']);
+
+        return redirect()->route('login')->with('message', 'Votre compte a bien été créé, vous pouvez vous connecter !');
+    }
+
 }

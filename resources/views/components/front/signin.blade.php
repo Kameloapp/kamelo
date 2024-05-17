@@ -18,7 +18,7 @@
                         <div class="label">
                             <span class="label-text">Your password?</span>
                         </div>
-                        <input name="password" type="text" placeholder="Type here" class="input input-bordered w-full" />
+                        <input name="password" type="password" placeholder="Type here" class="input input-bordered w-full" />
                     </label>
                     <div class="flex justify-between mb-6">
                         <label>

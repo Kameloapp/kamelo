@@ -2,31 +2,45 @@
     <x-slot name="frontContent">
         <section  class="mb-16 h-screen max-h-[900px] flex justify-center">
             <div class="w-1/3 text-center self-center">
-                <div class="prose mb-6"><h1>Sign Up</h1></div>
-                <a href="" class="w-full btn btn-info">Sign up with Mastodon</a>
-                <div class="divider my-10">Or</div>
-                <h2 class="mb-6">Sign up with email and password</h2>
-                <label class="form-control w-full mb-6">
-                    <div class="label">
-                        <span class="label-text">Your email?</span>
-                    </div>
-                    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
-                </label>
-                <label class="form-control w-full mb-6">
-                    <div class="label">
-                        <span class="label-text">Your password?</span>
-                    </div>
-                    <input type="text" placeholder="Type here" class="input input-bordered w-full" />
-                </label>
-                <div class="flex justify-between mb-6">
-                    <label>
-                        <input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
-                        Remember me
+                <div class="prose mb-6"><h1>Commencez à gérer vos collections</h1></div>
+                <a href="" class="w-full btn btn-info">Créer un compte via Mastodon</a>
+                <div class="divider my-10">Ou</div>
+                <h2 class="mb-6">Créez un compte avec votre email</h2>
+                <form action="{{ route('user-register') }}" method="post">
+                    @csrf
+                    <label class="form-control w-full mb-6 hidden">
+                        <div class="label">
+                            <span class="label-text">Votre nom ?</span>
+                        </div>
+                        <input name="fullname" type="text" placeholder="Ne remplissez pas ce champ" class="input input-bordered w-full" />
                     </label>
-                    <a href="">Forgotten password ?</a>
-                </div>
-                <button type="button" class="btn btn-success mb-6 w-full">Sign up</button>
-                Already a member ? <a href="{{ route('login') }}" class="font-bold" >Sign in</a>
+                    <label class="form-control w-full mb-6">
+                        <div class="label">
+                            <span class="label-text">Votre email ?</span>
+                        </div>
+                        <input name="email" type="text" placeholder="votre@email.fr" class="input input-bordered w-full" />
+                    </label>
+                    <label class="form-control w-full mb-6">
+                        <div class="label">
+                            <span class="label-text">Votre pseudonyme ?</span>
+                        </div>
+                        <input name="name" type="text" placeholder="Votre pseudo" class="input input-bordered w-full" />
+                    </label>
+                    <label class="form-control w-full mb-6">
+                        <div class="label">
+                            <span class="label-text">Votre mot de passe ?</span>
+                        </div>
+                        <input name="password" type="password" placeholder="Soyez original" class="input input-bordered w-full" />
+                    </label>
+                    <label class="form-control w-full mb-6">
+                        <div class="label">
+                            <span class="label-text">Confirmation du mot de passe ?</span>
+                        </div>
+                        <input name="password_confirmation" type="password" placeholder="Répétez votre mot de passe" class="input input-bordered w-full" />
+                    </label>
+                    <button type="submit" class="btn btn-success mb-6 w-full">Créer mon compte</button>
+                </form>
+                Vous avez déjà un compte ? <a href="{{ route('login') }}" class="font-bold" >Se connecter</a>
             </div>
         </section>
     </x-slot>
