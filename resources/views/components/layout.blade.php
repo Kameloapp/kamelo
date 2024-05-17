@@ -41,7 +41,7 @@
                                     <i data-lucide="User" class="mr-2"></i>Membre
                                 </summary>
                                 <ul>
-                                    <li><a href="{{ route('signin') }}">Connexion</a></li>
+                                    <li><a href="{{ route('login') }}">Connexion</a></li>
                                     <li><a href="{{ route('signup') }}">Inscription</a></li>
                                 </ul>
                             @endif
@@ -169,7 +169,7 @@
                                         Preferences
                                     </a>
                                 </li>
-                                <li><a>
+                                <li><a href="{{ route('logout') }}" title="Log out">
                                         <i class="mr-2" data-lucide="Log-out"></i>
                                         Déconnexion
                                     </a>
@@ -177,7 +177,7 @@
                             </ul>
                         </div>
                         @else
-                            <a class="mr-2" href="{{ route('signin') }}">Connexion</a><a class="ml-2" href="{{ route('signup') }}">Inscription</a>
+                            <a class="mr-2" href="{{ route('login') }}">Connexion</a><a class="ml-2" href="{{ route('signup') }}">Inscription</a>
                         @endif
                     </div>
                 </div>

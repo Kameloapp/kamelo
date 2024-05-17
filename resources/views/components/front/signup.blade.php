@@ -26,7 +26,7 @@
                     <a href="">Forgotten password ?</a>
                 </div>
                 <button type="button" class="btn btn-success mb-6 w-full">Sign up</button>
-                Already a member ? <a href="{{ route('signin') }}" class="font-bold" href="">Sign in</a>
+                Already a member ? <a href="{{ route('login') }}" class="font-bold" >Sign in</a>
             </div>
         </section>
     </x-slot>

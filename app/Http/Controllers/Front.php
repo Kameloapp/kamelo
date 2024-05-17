@@ -10,14 +10,4 @@ class Front extends Controller
     {
         return view('components/front/home');
     }
-
-    public function signin()
-    {
-        return view('components/front/signin');
-    }
-
-    public function signup()
-    {
-        return view('components/front/signup');
-    }
 }

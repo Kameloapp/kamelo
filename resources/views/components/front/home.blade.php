@@ -18,7 +18,7 @@
                         Kamelo.fr est l'instance française du réseau décentralisé et fédéré Kamelo et à ce titre fait partie du Fédiverse.
                     </p>
 
-                    <a href="{{ route('signin') }}" class="btn btn-secondary">Créer un compte</a>
+                    <a href="{{ route('login') }}" class="btn btn-secondary">Créer un compte</a>
                 </div>
             </div>
         </div>

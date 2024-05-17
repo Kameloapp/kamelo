@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Authenticate;
 use App\Http\Controllers\Films;
 use App\Http\Controllers\Front;
 use App\Http\Controllers\User;
@@ -25,11 +26,29 @@ Route::get('/test', function() {
     dump($jeu->medias()->dump());
 });
 
+Route::controller(Authenticate::class)->group(function () {
+    Route::get('/signin', [Authenticate::class, 'signin'])->name('login');
+    Route::get('/signup', [Authenticate::class, 'signup'])->name('signup');
+    Route::get('/signout', [Authenticate::class, 'signout'])->name('logout');
+
+    Route::post('/in', 'authenticate')->name('user-authenticate');
+    Route::post('/register', 'register')->name('user-register');
+
+    /*Route::get('/password-request', 'passwordRequest')->name('password-request');
+    Route::post('/password-request', 'doPasswordRequest')->name('do-password-request');
+    Route::get('/password-reset/{token}', 'passwordReset')->name('password-reset');
+    Route::post('/password-reset/', 'doPasswordReset')->name('do-password-reset');*/
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/user', [User::class, 'home'])->name('user-home');
+});
+
+
+
 Route::get('/films/must-see', [Films::class, 'popular'])->name('films-must-see');
 Route::get('/films/popular', [Films::class, 'popular'])->name('films-popular');
 Route::get('/films/search', [Films::class, 'popular'])->name('films-search');
 Route::get('/films/{gud?}', [Films::class, 'item'])->name('films-item');
-Route::get('/user', [User::class, 'home'])->name('user-home');
-Route::get('/signin', [Front::class, 'signin'])->name('signin');
-Route::get('/signup', [Front::class, 'signup'])->name('signup');
+
 Route::get('/', [Front::class, 'home'])->name('home');
